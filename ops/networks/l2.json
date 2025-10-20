@@ -1,0 +1,5 @@
+{
+  "chainId": 900,
+  "name": "TAGIT L2 Local",
+  "rpc": "${L2_RPC}"
+}

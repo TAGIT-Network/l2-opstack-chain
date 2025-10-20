@@ -1,0 +1,30 @@
+version: "3.8"
+services:
+  op-geth:
+    image: ethereum/client-go:stable
+    command: ["--http","--http.addr","0.0.0.0","--http.port","8545","--authrpc.jwtsecret","/config/jwt.hex"]
+    volumes:
+      - ./config:/config
+    ports: ["8545:8545"]
+
+  op-node:
+    image: us-docker.pkg.dev/oplabs-tools/artifacts/op-node:latest
+    environment:
+      - OP_NODE__L1_ETH_RPC=$L1_RPC
+      - OP_NODE__L2_ETH_RPC=http://op-geth:8545
+      - OP_NODE__JWT_SECRET=/config/jwt.hex
+    volumes:
+      - ./config:/config
+    depends_on: [op-geth]
+    ports: ["9003:9003"]
+
+  eigen-da (optional):
+    image: ghcr.io/eigenlayer/daemon:latest
+    profiles: ["eigen"]
+    environment:
+      - EIGEN_DA_RPC=${EIGEN_DA_RPC}
+    restart: unless-stopped
+
+networks:
+  default:
+    name: tagit-opstack

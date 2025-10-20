@@ -1,0 +1,5 @@
+{
+  "chainId": 1,
+  "name": "Ethereum Mainnet (example)",
+  "rpc": "${L1_RPC}"
+}

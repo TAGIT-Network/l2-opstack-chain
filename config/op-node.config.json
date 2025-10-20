@@ -1,0 +1,5 @@
+{
+  "l1Rpc": "${L1_RPC}",
+  "l2Rpc": "${L2_RPC}",
+  "jwt": "./config/jwt.hex"
+}

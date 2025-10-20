@@ -1,0 +1,5 @@
+{
+  "agentPassport": "${AGENT_PASSPORT_ERC721}",
+  "ccipRouteId": "${CHAINLINK_CCIP_ROUTE_ID}",
+  "notes": "Placeholders allowed. Used by tools/erc8004/* scripts."
+}

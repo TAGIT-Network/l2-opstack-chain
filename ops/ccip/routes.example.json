@@ -1,0 +1,4 @@
+{
+  "routeId": "${CHAINLINK_CCIP_ROUTE_ID}",
+  "notes": "Optional. Presence only — the system does not require CCIP."
+}
