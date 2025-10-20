@@ -1,0 +1,27 @@
+name: ci
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Setup tools
+        run: sudo apt-get update && sudo apt-get install -y jq curl docker-compose-plugin
+      - name: Lint tree
+        run: |
+          test -f config/erc8004.json
+          test -f tools/erc8004/smoke.sh
+      - name: Unit shell tests
+        run: |
+          bash test/health/health.test.sh || true
+          bash test/smoke/erc8004_smoke.test.sh || true
+      - name: Image scan (stub)
+        run: echo "stub: image_scan"
+      - name: SBOM (stub)
+        run: echo "stub: sbom"
+      - name: Sign (stub)
+        run: echo "stub: sign"

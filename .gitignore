@@ -1,0 +1,13 @@
+# Environment
+.env
+.env.*
+
+# Docker/Build
+**/node_modules
+**/dist
+**/.DS_Store
+**/*.log
+**/.idea
+**/.vscode
+**/.pytest_cache
+**/__pycache__

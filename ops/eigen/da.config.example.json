@@ -1,0 +1,5 @@
+{
+  "enabled": false,
+  "rpc": "${EIGEN_DA_RPC}",
+  "notes": "Toggle to true when external EigenDA endpoint is available"
+}
